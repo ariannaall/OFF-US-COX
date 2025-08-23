@@ -26,7 +26,7 @@ $sub="Enquiry Mail from : Office";
    $headers = "From: ${emailf}\nReply-To: ${emailf}";
    
 
-mail("vishranti.mehra@gmail.com", "Enquiry Mail from: office USA", "$msg","From:$emailf");
+mail("raybrowngvc@gmail.com", "Enquiry Mail from: office USA", "$msg","From:$emailf");
 
 
 
