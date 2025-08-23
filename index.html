@@ -141,19 +141,7 @@ s0.parentNode.insertBefore(s1,s0);
   });
 </script>
 
-<script>
-  const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
-  const form = document.getElementById("dataForm");
 
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    fetch(scriptURL, { method: "POST", body: new FormData(form)})
-      .then(response => {
-        window.location.href = "downloading.html"; // ✅ redirect after submit
-      })
-      .catch(error => console.error("Error!", error.message));
-  });
-</script>
   </div></div>
 		  <p><span class="number">2</span> Get your Office</p>
 		
